@@ -1,0 +1,9 @@
+filenames samplenames targets
+ROS1-_9.CEL ROS1-_9 chicken
+ROS1+_10.CEL ROS1-_10 chicken
+ROS2-_11.CEL ROS1-_11 chicken
+ROS2+_12.CEL ROS1-_12 chicken
+ROS3-_13.CEL ROS1-_13 chicken
+ROS3+_14.CEL ROS1-_14 chicken
+ROS4-_15.CEL ROS1-_15 chicken
+ROS4+_16.CEL ROS1-_16 chicken
