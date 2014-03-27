@@ -196,3 +196,5 @@ if(!exists("celResults"))
   celResults <- .doDE(celFilt$eset)
 
 }
+sortLimma<-head(celResults[order(celResults$adj.P.Val),])
+View(sortLimma)
