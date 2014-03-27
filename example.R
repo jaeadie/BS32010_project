@@ -170,7 +170,7 @@ workingDir = "/homes/jaeadie/BS32010_hwork/project/data/GCOS_Cel"
   write.table(results, "results.txt", sep="\t", quote=FALSE)
   return(results)
 }
-
+#if each function exists then run the program as a whole.
 if(!exists("celResults"))
 {
   celRAW <- .getData()
@@ -185,5 +185,6 @@ if(!exists("celResults"))
   celResults <- .doDE(celFilt$eset)
 
 }
+#sort the results to show the top expressed genes based their adjusted P value.
 sortLimma<-head(celResults[order(celResults$adj.P.Val),])
 View(sortLimma)
