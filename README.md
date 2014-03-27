@@ -1,4 +1,6 @@
-This repository contains all the scripts and output files from the BS32010 project
+This repository contains all the scripts and output files from the BS32010 project:
+
+The data folder contains all of the various output files that were produced during the project, apart from the phylogenetic tree plots as they had to be produced out with the linux system and could not be uploaded.
 
 RMAnormalisation.R contains the code used to normalise and produce the plots of each individual cel.
 
