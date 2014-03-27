@@ -1,14 +1,4 @@
-# Example of MicroArray Analysis taken from 
-# adapted from
-#   analysing-microarray-data-in-bioconductor
-# on
-#   http://bioinformatics.knowledgeblog.org
-#
-# download the BioC installation routines
-#source("http://bioconductor.org/biocLite.R")
-#biocLite()
-#biocLite("GEOquery")
-#biocLite("hgu133plus2.db")
+#load the required packages.
 library(ggplot2)
 library(reshape2)
 library(GEOquery)
@@ -20,9 +10,9 @@ library(chicken.db)
 library(chickenprobe)
 library(genefilter)
 library(limma)
-
+#set working directory to where the files are located.
 workingDir = "/homes/jaeadie/BS32010_hwork/project/data/GCOS_Cel"
-
+#
 .ggboxIt <- function(dfin,pdfname)
 { # draw a ggplot boxplot of data frame produced by .summarise.it()
   gp <- ggplot(dfin, aes(x = name, ymin = lwisk, lower = lbox,
@@ -50,7 +40,7 @@ workingDir = "/homes/jaeadie/BS32010_hwork/project/data/GCOS_Cel"
   rownames(stats) <- NULL
   return(stats)
 }
-
+#class thet inputs and stores all of the files and their details.
 .getData <- function()
 {
  
@@ -62,7 +52,7 @@ workingDir = "/homes/jaeadie/BS32010_hwork/project/data/GCOS_Cel"
 			"ROS1-_15", "ROS1-_16")
 	targets <- c("chicken", "chicken", "chicken", "chicken", "chicken", "chicken",
 		      "chicken", "chicken")
-
+#store the file details in a txt file and output it
   phenodata<-as.data.frame(cbind(filenames,samplenames,targets))
   write.table(phenodata,paste(workingDir,"phenodata.txt",sep="/")
               ,quote=F,row.name=F)
@@ -97,21 +87,20 @@ workingDir = "/homes/jaeadie/BS32010_hwork/project/data/GCOS_Cel"
   #affyPLM is required to interrogate celRMA
   celRAWqc <- fitPLM(celRAW)
 
-  # Create an image of GSM24662.CEL:
+  # Create an image of .CEL:
   image(celRAWqc, which=1, add.legend=TRUE)
 
-  # Create an image of GSM524665.CEL
-  # There is a spatial artifact present
+ 
   image(celRAWqc, which=4, add.legend=TRUE)
 
   # affyPLM also provides more informative boxplots
   # RLE (Relative Log Expression) plots should have
-  # values close to zero. GSM524665.CEL is an outlier
+
   RLE(celRAWqc, main="RLE")
 
   # We can also use NUSE (Normalised Unscaled Standard Errors).
   # The median standard error should be 1 for most genes.
-  # GSM524665.CEL appears to be an outlier on this plot too
+
   NUSE(celRAWqc, main="NUSE")
   dev.off()
 }
