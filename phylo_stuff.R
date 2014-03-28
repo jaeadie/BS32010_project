@@ -17,7 +17,7 @@ d2<-dist.dna(x, model="K80")
 tr.nj<-nj(d)
 #plot the tree from the neighbour join algorithm 
 plot(tr.nj)
-#claculate the distortion
+#calculate the distortion
 dt.nj<-cophenetic(tr.nj)
 #pull out the taxa from (d) and assign them to dmat
 dmat<-as.matrix(d)
